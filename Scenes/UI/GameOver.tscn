@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://cqgameover001"]
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Dim" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.58)
+
+[node name="Panel" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 326.0
+offset_top = 120.0
+offset_right = 826.0
+offset_bottom = 520.0
+color = Color(0.07, 0.15, 0.13, 0.96)
+
+[node name="Title" type="Label" parent="Panel"]
+layout_mode = 0
+offset_top = 28.0
+offset_right = 500.0
+offset_bottom = 88.0
+theme_override_font_sizes/font_size = 40
+text = "GAME OVER"
+horizontal_alignment = 1
+
+[node name="FinalScore" type="Label" parent="Panel"]
+layout_mode = 0
+offset_top = 110.0
+offset_right = 500.0
+offset_bottom = 170.0
+theme_override_font_sizes/font_size = 32
+text = "Score  0"
+horizontal_alignment = 1
+
+[node name="Stats" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 180.0
+offset_right = 480.0
+offset_bottom = 230.0
+theme_override_font_sizes/font_size = 16
+text = "0 goals   0 saves   0 misses   0 shots"
+horizontal_alignment = 1
+
+[node name="Restart" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 125.0
+offset_top = 250.0
+offset_right = 375.0
+offset_bottom = 300.0
+text = "Restart"
+
+[node name="MainMenu" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 125.0
+offset_top = 318.0
+offset_right = 375.0
+offset_bottom = 368.0
+text = "Main Menu"

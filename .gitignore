@@ -1,0 +1,12 @@
+.godot/
+.mono/
+bin/
+obj/
+*.user
+.vs/
+*.translation
+mono_crash.*.json
+export.cfg
+/android/
+shots/
+verify-output/

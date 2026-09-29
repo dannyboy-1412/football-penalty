@@ -1,6 +1,11 @@
 [gd_scene format=3 uid="uid://b44ekp28iuips"]
 
 [ext_resource type="Script" uid="uid://bncf4o7jkgjli" path="res://Scripts/Core/GameManager.cs" id="1_80nbo"]
+[ext_resource type="Script" path="res://Scripts/Player/Player.cs" id="2_player"]
+[ext_resource type="Script" path="res://Scripts/Player/ShotController.cs" id="3_shot"]
+[ext_resource type="Script" path="res://Scripts/Ball/Ball.cs" id="4_ball"]
+[ext_resource type="Script" path="res://Scripts/UI/UIManager.cs" id="5_ui"]
+[ext_resource type="PackedScene" path="res://Scenes/UI/GameOver.tscn" id="6_over"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_80nbo")
@@ -8,6 +13,7 @@ script = ExtResource("1_80nbo")
 [node name="Pitch" type="ColorRect" parent="."]
 offset_right = 1152.0
 offset_bottom = 648.0
+mouse_filter = 2
 color = Color(0.14436024, 0.54102784, 0.43529293, 1)
 
 [node name="PenaltyBox" type="Line2D" parent="."]
@@ -124,19 +130,93 @@ position = Vector2(576, 292)
 
 [node name="Player" type="Node2D" parent="."]
 position = Vector2(576, 580)
+script = ExtResource("2_player")
 
 [node name="Body" type="ColorRect" parent="Player"]
 offset_left = -18.0
-offset_top = -72.0
+offset_top = -80.0
 offset_right = 18.0
+offset_bottom = 0.0
+mouse_filter = 2
 color = Color(0.12, 0.28, 0.72, 1)
+
+[node name="Head" type="ColorRect" parent="Player"]
+offset_left = -12.0
+offset_top = -104.0
+offset_right = 12.0
+offset_bottom = -80.0
+mouse_filter = 2
+color = Color(0.93, 0.74, 0.55, 1)
+
+[node name="ShotController" type="CanvasLayer" parent="Player"]
+script = ExtResource("3_shot")
+
+[node name="PowerMeter" type="ProgressBar" parent="Player/ShotController"]
+offset_left = 376.0
+offset_top = 600.0
+offset_right = 656.0
+offset_bottom = 628.0
+max_value = 1.0
+show_percentage = false
+
+[node name="ShootButton" type="Button" parent="Player/ShotController"]
+offset_left = 672.0
+offset_top = 592.0
+offset_right = 792.0
+offset_bottom = 636.0
+text = "Shoot"
+
+[node name="Hint" type="Label" parent="Player/ShotController"]
+offset_left = 376.0
+offset_top = 564.0
+offset_right = 792.0
+offset_bottom = 592.0
+text = "Arrows aim  ·  Space shoots"
+horizontal_alignment = 1
 
 [node name="Ball" type="Node2D" parent="."]
 position = Vector2(576, 520)
+script = ExtResource("4_ball")
 
 [node name="Body" type="ColorRect" parent="Ball"]
 offset_left = -14.0
 offset_top = -14.0
 offset_right = 14.0
 offset_bottom = 14.0
+mouse_filter = 2
 color = Color(0.95, 0.95, 0.97, 1)
+
+[node name="UIManager" type="CanvasLayer" parent="."]
+layer = 10
+script = ExtResource("5_ui")
+
+[node name="ScoreLabel" type="Label" parent="UIManager"]
+offset_left = 24.0
+offset_top = 16.0
+offset_right = 280.0
+offset_bottom = 56.0
+theme_override_font_sizes/font_size = 22
+text = "Score  0"
+
+[node name="LivesLabel" type="Label" parent="UIManager"]
+offset_left = 872.0
+offset_top = 16.0
+offset_right = 1128.0
+offset_bottom = 56.0
+theme_override_font_sizes/font_size = 22
+text = "Lives  3"
+horizontal_alignment = 2
+
+[node name="Banner" type="Label" parent="UIManager"]
+visible = false
+offset_left = 176.0
+offset_top = 300.0
+offset_right = 976.0
+offset_bottom = 380.0
+theme_override_font_sizes/font_size = 48
+text = "GOAL!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameOver" parent="UIManager" instance=ExtResource("6_over")]
+visible = false
