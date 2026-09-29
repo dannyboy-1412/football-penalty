@@ -1,0 +1,142 @@
+[gd_scene format=3 uid="uid://b44ekp28iuips"]
+
+[ext_resource type="Script" uid="uid://bncf4o7jkgjli" path="res://Scripts/Core/GameManager.cs" id="1_80nbo"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_80nbo")
+
+[node name="Pitch" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.14436024, 0.54102784, 0.43529293, 1)
+
+[node name="PenaltyBox" type="Line2D" parent="."]
+points = PackedVector2Array(256, 300, 896, 300, 896, 648, 256, 648)
+closed = true
+width = 4.0
+default_color = Color(0.92, 0.95, 0.9, 0.85)
+
+[node name="GoalLine" type="Line2D" parent="."]
+points = PackedVector2Array(336, 300, 816, 300)
+width = 4.0
+default_color = Color(0.92, 0.95, 0.9, 0.85)
+
+[node name="PenaltySpot" type="ColorRect" parent="."]
+offset_left = 568.0
+offset_top = 512.0
+offset_right = 584.0
+offset_bottom = 528.0
+color = Color(0.92, 0.95, 0.9, 1)
+
+[node name="Goal" type="Node2D" parent="."]
+position = Vector2(576, 80)
+
+[node name="Net" type="ColorRect" parent="Goal"]
+offset_left = -240.0
+offset_right = 240.0
+offset_bottom = 220.0
+color = Color(0.85, 0.9, 0.95, 0.18)
+
+[node name="LeftPost" type="ColorRect" parent="Goal"]
+offset_left = -248.0
+offset_right = -232.0
+offset_bottom = 228.0
+color = Color(0.95, 0.96, 0.98, 1)
+
+[node name="RightPost" type="ColorRect" parent="Goal"]
+offset_left = 232.0
+offset_right = 248.0
+offset_bottom = 228.0
+color = Color(0.95, 0.96, 0.98, 1)
+
+[node name="Crossbar" type="ColorRect" parent="Goal"]
+offset_left = -248.0
+offset_top = -8.0
+offset_right = 248.0
+offset_bottom = 8.0
+color = Color(0.95, 0.96, 0.98, 1)
+
+[node name="TopLeft" type="Marker2D" parent="Goal"]
+position = Vector2(-160, 67)
+
+[node name="Highlight" type="ColorRect" parent="Goal/TopLeft"]
+offset_left = -72.0
+offset_top = -44.0
+offset_right = 72.0
+offset_bottom = 44.0
+color = Color(1, 1, 1, 0.08)
+
+[node name="TopCenter" type="Marker2D" parent="Goal"]
+position = Vector2(0, 67)
+
+[node name="Highlight" type="ColorRect" parent="Goal/TopCenter"]
+offset_left = -72.0
+offset_top = -44.0
+offset_right = 72.0
+offset_bottom = 44.0
+color = Color(1, 1, 1, 0.08)
+
+[node name="TopRight" type="Marker2D" parent="Goal"]
+position = Vector2(160, 67)
+
+[node name="Highlight" type="ColorRect" parent="Goal/TopRight"]
+offset_left = -72.0
+offset_top = -44.0
+offset_right = 72.0
+offset_bottom = 44.0
+color = Color(1, 1, 1, 0.08)
+
+[node name="BottomLeft" type="Marker2D" parent="Goal"]
+position = Vector2(-160, 169)
+
+[node name="Highlight" type="ColorRect" parent="Goal/BottomLeft"]
+offset_left = -72.0
+offset_top = -44.0
+offset_right = 72.0
+offset_bottom = 44.0
+color = Color(1, 1, 1, 0.08)
+
+[node name="BottomCenter" type="Marker2D" parent="Goal"]
+position = Vector2(0, 169)
+
+[node name="Highlight" type="ColorRect" parent="Goal/BottomCenter"]
+offset_left = -72.0
+offset_top = -44.0
+offset_right = 72.0
+offset_bottom = 44.0
+color = Color(1, 1, 1, 0.08)
+
+[node name="BottomRight" type="Marker2D" parent="Goal"]
+position = Vector2(160, 169)
+
+[node name="Highlight" type="ColorRect" parent="Goal/BottomRight"]
+offset_left = -72.0
+offset_top = -44.0
+offset_right = 72.0
+offset_bottom = 44.0
+color = Color(1, 1, 1, 0.08)
+
+[node name="OverTheBar" type="Marker2D" parent="Goal"]
+position = Vector2(0, -36)
+
+[node name="KeeperSlot" type="Marker2D" parent="."]
+position = Vector2(576, 292)
+
+[node name="Player" type="Node2D" parent="."]
+position = Vector2(576, 580)
+
+[node name="Body" type="ColorRect" parent="Player"]
+offset_left = -18.0
+offset_top = -72.0
+offset_right = 18.0
+color = Color(0.12, 0.28, 0.72, 1)
+
+[node name="Ball" type="Node2D" parent="."]
+position = Vector2(576, 520)
+
+[node name="Body" type="ColorRect" parent="Ball"]
+offset_left = -14.0
+offset_top = -14.0
+offset_right = 14.0
+offset_bottom = 14.0
+color = Color(0.95, 0.95, 0.97, 1)
