@@ -7,33 +7,12 @@ public partial class Ball : Node2D
 
 	private Vector2 _spot;
 	private Tween _flight;
+	private Sprite2D _face;
 
 	public override void _Ready()
 	{
 		_spot = Position;
-		if (GetNodeOrNull<ColorRect>("Body") is { } body)
-			body.Visible = false;
-		var poly = new Polygon2D { Color = new Color(0.96f, 0.96f, 0.98f), Name = "Face" };
-		var points = new Vector2[18];
-		for (int i = 0; i < points.Length; i++)
-		{
-			float angle = i / (float)points.Length * Mathf.Tau;
-			points[i] = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * 14f;
-		}
-		poly.Polygon = points;
-		AddChild(poly);
-		AddChild(new Polygon2D
-		{
-			Color = new Color(0.12f, 0.12f, 0.14f),
-			Polygon =
-			[
-				new Vector2(-3, -8),
-				new Vector2(4, -6),
-				new Vector2(5, 1),
-				new Vector2(-1, 5),
-				new Vector2(-6, -1),
-			],
-		});
+		_face = GetNode<Sprite2D>("Face");
 	}
 
 	public void ResetToSpot()
@@ -41,7 +20,7 @@ public partial class Ball : Node2D
 		_flight?.Kill();
 		Position = _spot;
 		Scale = Vector2.One;
-		Rotation = 0f;
+		_face.Rotation = 0f;
 		Visible = true;
 	}
 
@@ -56,7 +35,7 @@ public partial class Ball : Node2D
 		Vector2 endScale = caught ? new Vector2(0.4f, 0.4f) : new Vector2(0.55f, 0.55f);
 		_flight.TweenProperty(this, "scale", endScale, seconds);
 		if (!caught)
-			_flight.TweenProperty(this, "rotation", Mathf.Tau * 2f, seconds);
+			_flight.TweenProperty(_face, "rotation", Mathf.Tau * 2f, seconds);
 		_flight.SetParallel(false);
 		_flight.TweenCallback(Callable.From(() => Arrived?.Invoke()));
 	}

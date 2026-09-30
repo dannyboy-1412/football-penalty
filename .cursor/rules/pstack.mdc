@@ -1,0 +1,35 @@
+---
+description: Route Football Penalty Challenge work through project pstack skills
+alwaysApply: true
+---
+
+# pstack on this project
+
+This repo is a C# Godot 4.7 penalty shooter. Skills live in `.cursor/skills/`. Agents live in `.cursor/agents/`. Read a skill before you follow it.
+
+## Always
+
+- Apply `unslop` to every reply and any prose you write.
+- The owner is learning while building. Follow `build-and-learn`. Do not silently finish the game.
+- Name the data shape first (`principle-model-the-domain`). Shot, keeper dive, score, and match phase are types, not bools piled onto `GameManager`.
+- Smallest change that solves it (`principle-laziness-protocol`).
+- Prove it in the running game, not just that it compiles (`principle-prove-it-works`).
+- No narrating comments. Keep a comment only for a non-obvious why the code cannot show (`no-comments`).
+- Player feel beats implementation convenience (`principle-experience-first`).
+
+## Task routing
+
+- Non-trivial feature, bug, refactor, or prototype: read `poteto-mode` and copy the matching playbook steps in verbatim.
+- Types or calls that cross a function boundary: `architect` first.
+- Beginner, "teach me", or following along in the Godot editor: `teach`.
+- "How does X work": `how`.
+- "Why is this this way": `why`.
+- Small-looking change: `blast-radius` before editing.
+- Bug with a cheap local test: `tdd`.
+- Docs, commits, PR descriptions: `technical-writing`.
+- No playbook fits, or the user is stepping away: `figure-it-out`.
+- Once a playable shot loop exists and `.cursor/skills/verify-*` is missing: `create-verification-skill`.
+
+## Do not load
+
+`typescript-best-practices`, `make-bot-ui`, `automate-me`, `setup-pstack`, and `bro` are not part of this project.
